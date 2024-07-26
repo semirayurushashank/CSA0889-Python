@@ -1,0 +1,28 @@
+def remove_duplicates(sorted_array):
+    """
+    Removes duplicates from a sorted array.
+
+    Args:
+        sorted_array (list): A sorted list of integers.
+
+    Returns:
+        list: A new sorted list with duplicates removed.
+    """
+    if not sorted_array:
+        return []
+    sorted_array.sort()
+    i = 0  
+    j = 1  
+
+    while j < len(sorted_array):
+        if sorted_array[i] != sorted_array[j]:
+            i += 1
+            sorted_array[i] = sorted_array[j]
+        j += 1
+    return sorted_array[:i+1]
+user_input = input("Enter a list of numbers separated by spaces: ")
+array = [int(x) for x in user_input.split()]
+
+print("Original Array:", array)
+sorted_array = remove_duplicates(array)
+print("Sorted Array with duplicates removed:", sorted_array)
