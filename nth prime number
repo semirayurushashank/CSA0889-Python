@@ -1,0 +1,33 @@
+n = int(input("Enter a number: "))
+
+count = 0
+num = 2
+while True:
+    is_prime = True
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        count += 1
+        if count == n:
+            nth_prime_num = num
+            print(f"{n}th Prime number is {nth_prime_num}")
+            break
+    num += 1
+
+print(f"Next {n} prime numbers after {nth_prime_num}:")
+next_n_count = 0
+next_n_num = nth_prime_num + 1
+while True:
+    is_prime = True
+    for i in range(2, int(next_n_num**0.5) + 1):
+        if next_n_num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(next_n_num)
+        next_n_count += 1
+        if next_n_count == n:
+            break
+    next_n_num += 1
