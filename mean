@@ -1,0 +1,26 @@
+n = int(input("Enter the number of elements: "))
+arr = []
+for i in range(n):
+    num = int(input("Enter element {}: ".format(i + 1)))
+    arr.append(num)
+
+mean = sum(arr) / len(arr)
+
+arr.sort()
+if n % 2 == 0:
+    median = (arr[n // 2 - 1] + arr[n // 2]) / 2
+else:
+    median = arr[n // 2]
+
+frequency = {}
+for num in arr:
+    if num in frequency:
+        frequency[num] += 1
+    else:
+        frequency[num] = 1
+max_frequency = max(frequency.values())
+modes = [num for num, freq in frequency.items() if freq == max_frequency]
+
+print("Mean =", round(mean))
+print("Median =", median)
+print("Mode =", modes)
